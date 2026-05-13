@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGCI - College Directories</title>
+    <style>
+        :root {
+            --bg-black: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --neon-green: #39FF14;
+            --pure-white: #ffffff;
+            --neon-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--pure-white);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Header & Logo */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .school-logo {
+            max-width: 150px;
+            height: auto;
+            transition: filter 0.3s ease;
+        }
+
+        .school-logo:hover {
+            filter: drop-shadow(0 0 10px var(--neon-green));
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 15px;
+        }
+
+        h1 span {
+            color: var(--neon-green);
+            text-shadow: var(--neon-shadow);
+        }
+
+        /* 2x2 Symmetrical Grid */
+        .container {
+            display: grid;
+            /* Forces exactly 2 columns */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px;
+            width: 100%;
+            max-width: 800px; /* Constrained width to keep it looking like a grid */
+        }
+
+        .college-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .college-card:hover {
+            border-color: var(--neon-green);
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+        }
+
+        .image-container {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Keeps all images the same height for symmetry */
+            overflow: hidden;
+        }
+
+        .college-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .college-title {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--pure-white);
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.4);
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .college-card:hover .college-title {
+            color: var(--neon-green);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .container {
+                gap: 12px;
+            }
+            .college-title {
+                font-size: 0.8rem;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                grid-template-columns: 1fr; /* Switch to 1 column only on very small screens */
+            }
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 40px 0 20px;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="https://www.cgci.edu.ph" target="_blank">
+            <img src="cgci.png" alt="CGCI Logo" class="school-logo">
+        </a>
+        <h1>Drive <span>Links</span></h1>
+    </header>
+
+    <div class="container">
+        
+        <!-- Row 1, Col 1 -->
+        <a href="https://drive.google.com/drive/folders/1S1mokixXvra01JiFF93301lvC4vL0jin?usp=drive_link" target="_blank" class="college-card">
+            <div class="image-container">
+                <img src="CCS.jpg" alt="CCS">
+            </div>
+            <div class="college-title">Computer Studies</div>
+        </a>
+
+        <!-- Row 1, Col 2 -->
+        <a href="https://drive.google.com/drive/folders/1W78IexdGKGn925TsxFIePMUv0iNzDUG9?usp=drive_link" target="_blank" class="college-card">
+            <div class="image-container">
+                <img src="CED.jpg" alt="CED">
+            </div>
+            <div class="college-title">Education</div>
+        </a>
+
+        <!-- Row 2, Col 1 -->
+        <a href="https://drive.google.com/drive/folders/1woGaX9-igPjQY6t4anFpwTvp1_c8QvTw?usp=drive_link" target="_blank" class="college-card">
+            <div class="image-container">
+                <img src="CBAM.jpg" alt="CBAM">
+            </div>
+            <div class="college-title">Business Admin</div>
+        </a>
+
+        <!-- Row 2, Col 2 -->
+        <a href="https://drive.google.com/drive/folders/1WLjRb3dmbtF8JGze4VyqelYn_er_wiv6?usp=sharing" target="_blank" class="college-card">
+            <div class="image-container">
+                <img src="CPAG.jpg" alt="CPAG">
+            </div>
+            <div class="college-title">Public Admin</div>
+        </a>
+
+    </div>
+
+    <footer>
+        &copy; 2026 Core Gateway College, Inc.
+    </footer>
+
+</body>
+</html>
